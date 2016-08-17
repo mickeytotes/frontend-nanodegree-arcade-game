@@ -29,6 +29,14 @@ var player = function() {
     this.sprite = 'images/char-boy.png';
 };
 
+player.prototype.update = function(dt) {
+    //TODO: add something here
+};
+
+player.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
 
 // Now instantiate your objects.
 
