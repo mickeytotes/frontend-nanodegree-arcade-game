@@ -40,16 +40,16 @@ Player.prototype.render = function() {
 };
 
 Player.prototype.handleInput = function(direction) {
-    if (direction == 'left') {
+    if (direction == 'left' && this.x > 50) {
         this.x -= 50
     }
-    if (direction == 'right') {
+    if (direction == 'right' && this.x < 400) {
         this.x += 50
     }
-    if (direction == 'up') {
+    if (direction == 'up' && this.y > 29) {
         this.y -= 50
     }
-    if (direction == 'down') {
+    if (direction == 'down' && this.y < 430) {
         this.y += 50
     }
 };
