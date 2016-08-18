@@ -1,5 +1,18 @@
 // Enemies our player must avoid
 var Enemy = function() {
+
+    //this.x = function getRandomInt(min, max) {
+      //  return Math.floor(Math.random() * (450 - 50 + 1) + 50);
+    //};
+
+    //this.y = function getRandomInt(min, max) {
+      //  return Math.floor(Math.random() * (225 - 60 + 1) + 100);
+   // };
+
+    this.x = 0;
+    this.y = 225;
+
+
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 
@@ -26,7 +39,7 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 var Player = function() {
     this.x = 202;
-    this.y = 430;
+    this.y = 403;
     this.sprite = 'images/char-boy.png';
 };
 
@@ -41,26 +54,33 @@ Player.prototype.render = function() {
 
 Player.prototype.handleInput = function(direction) {
     if (direction == 'left' && this.x > 50) {
-        this.x -= 50
+        this.x -= 100
     }
     if (direction == 'right' && this.x < 400) {
-        this.x += 50
+        this.x += 100
     }
     if (direction == 'up' && this.y > 29) {
-        this.y -= 50
+        this.y -= 85
     }
-    if (direction == 'down' && this.y < 430) {
-        this.y += 50
+    if (direction == 'down' && this.y < 403) {
+        this.y += 85
     }
 };
 
 // Now instantiate your objects.
 
+var enemy1 = new Enemy();
+var enemy2 = new Enemy();
+var enemy3 = new Enemy();
+
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [new Enemy, new Enemy, new Enemy];
+var allEnemies = [enemy1, enemy2, enemy3];
+
+// **** or...
+//var allEnemies = [new Enemy, new Enemy, new Enemy];
 
 // Place the player object in a variable called player
-var player = new Player(202, 430);
+var player = new Player(202, 403);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
