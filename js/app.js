@@ -44,6 +44,7 @@ Player.prototype.render = function() {
 var allEnemies = [new Enemy, new Enemy, new Enemy];
 
 // Place the player object in a variable called player
+var player = new Player(100, 100);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
