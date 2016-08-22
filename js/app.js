@@ -44,8 +44,15 @@ var Player = function() {
 };
 
 Player.prototype.update = function(dt) {
+    //if (this.y > 60) {
+      //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    //};
+    //TODO: add something here?
 
-    //TODO: add something here
+      if (this.y < 60) {
+            this.x = 202;
+            this.y = 403;
+    }
 };
 
 Player.prototype.render = function() {
@@ -65,7 +72,7 @@ Player.prototype.handleInput = function(direction) {
     if (direction == 'down' && this.y < 403) {
         this.y += 85
     }
-};
+    };
 
 // Now instantiate your objects.
 
