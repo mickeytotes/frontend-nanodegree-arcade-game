@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, sprite) {
 
     //this.x = function getRandomInt(min, max) {
       //  return Math.floor(Math.random() * (450 - 50 + 1) + 50);
@@ -9,8 +9,8 @@ var Enemy = function() {
       //  return Math.floor(Math.random() * (225 - 60 + 1) + 100);
    // };
 
-    this.x = 0;
-    this.y = 225;
+    this.x = x;
+    this.y = y;
 
 
     // Variables applied to each of our instances go here,
@@ -44,9 +44,6 @@ var Player = function() {
 };
 
 Player.prototype.update = function(dt) {
-    //if (this.y > 60) {
-      //  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-    //};
     //TODO: add something here?
 
       if (this.y < 60) {
@@ -76,15 +73,17 @@ Player.prototype.handleInput = function(direction) {
 
 // Now instantiate your objects.
 
-var enemy1 = new Enemy();
-var enemy2 = new Enemy();
-var enemy3 = new Enemy();
+var enemy1 = new Enemy(0, 225, 'images/enemy-bug.png');
+var enemy2 = new Enemy(0, 125, 'images/enemy-bug.png');
+var enemy3 = new Enemy(0, 95, 'images/enemy-bug.png');
+var enemy4 = new Enemy(0,65, 'images/enemy-bug.png');
 
 // Place all enemy objects in an array called allEnemies
-var allEnemies = [enemy1, enemy2, enemy3];
-
-// **** or...
-//var allEnemies = [new Enemy, new Enemy, new Enemy];
+var allEnemies = [];
+    allEnemies.push(enemy1);
+    allEnemies.push(enemy2);
+    allEnemies.push(enemy3);
+    allEnemies.push(enemy4);
 
 // Place the player object in a variable called player
 var player = new Player(202, 403);
