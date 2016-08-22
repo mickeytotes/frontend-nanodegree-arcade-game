@@ -27,10 +27,20 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += 100 * dt;
+    this.x += speed(2, 400) * dt;
     if (this.x > 500) {
         this.x = 0;
     }
+
+
+
+    //var speed = function getRandomInt(min, max) {
+        //return Math.floor(Math.random() * (450 - 50 + 1) + 50);
+    //};
+};
+
+var speed = function getRandomInt(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
 // Draw the enemy on the screen, required method for game
