@@ -72,7 +72,6 @@ Player.prototype.handleInput = function(direction) {
     };
 
 // Now instantiate your objects.
-
 var enemy1 = new Enemy(0, 225, 'images/enemy-bug.png');
 var enemy2 = new Enemy(0, 125, 'images/enemy-bug.png');
 var enemy3 = new Enemy(0, 95, 'images/enemy-bug.png');
@@ -87,6 +86,9 @@ var allEnemies = [];
 
 // Place the player object in a variable called player
 var player = new Player(202, 403);
+
+var allPlayers = [];
+allPlayers.push(player);
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
