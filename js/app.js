@@ -30,16 +30,20 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.speed * dt;
     if (this.x > 500) {
-        this.x = 0;
+        this.x = -100;
     }
 
+    //function checkCollisions() {
+        //var rect1 = {x: this.x, y: this.y, width: 100, height: 50}
+       // var rect2 = {x: player.x, y: player.y, width: 50, height: 100}
+
+        //if (rect1.x < rect2.x + rect2.width &&
+        //rect1.x + rect1.width > rect2.x &&
+        //rect1.y < rect2.y + rect2.height &&
+        //rect1.height + rect1.y > rect2.y) {
+    //}
+
 };
-
-//var speed = getRandomInt(1, 100);
-
-//function getRandomInt(min, max) {
-  //  return Math.floor(Math.random() * (max - min + 1)) + min;
-//}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
