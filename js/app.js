@@ -1,16 +1,17 @@
+//TODO: Take out unnecessary comments
+//TODO: add any necessary comments
+
 // Enemies our player must avoid
 var Enemy = function(x, y, sprite) {
 
-    //this.x = function getRandomInt(min, max) {
-        //return Math.floor(Math.random() * (450 - 50 + 1) + 50);
-    //};
-
-    //this.y = function getRandomInt(min, max) {
-      //  return Math.floor(Math.random() * (225 - 60 + 1) + 100);
-   // };
-
     this.x = x;
     this.y = y;
+
+    this.speed = getRandomInt(80, 200);
+
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
 
     // Variables applied to each of our instances go here,
@@ -27,21 +28,18 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += speed(2, 400) * dt;
+    this.x += this.speed * dt;
     if (this.x > 500) {
         this.x = 0;
     }
 
-
-
-    //var speed = function getRandomInt(min, max) {
-        //return Math.floor(Math.random() * (450 - 50 + 1) + 50);
-    //};
 };
 
-var speed = function getRandomInt(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+//var speed = getRandomInt(1, 100);
+
+//function getRandomInt(min, max) {
+  //  return Math.floor(Math.random() * (max - min + 1)) + min;
+//}
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -86,10 +84,10 @@ Player.prototype.handleInput = function(direction) {
     };
 
 // Now instantiate your objects.
-var enemy1 = new Enemy(0, 234, 'images/enemy-bug.png');
-var enemy2 = new Enemy(0, 175, 'images/enemy-bug.png');
-var enemy3 = new Enemy(0, 110, 'images/enemy-bug.png');
-var enemy4 = new Enemy(0, 58, 'images/enemy-bug.png');
+var enemy1 = new Enemy(-150, 234, 'images/enemy-bug.png');
+var enemy2 = new Enemy(-100, 234, 'images/enemy-bug.png');
+var enemy3 = new Enemy(-180, 150, 'images/enemy-bug.png');
+var enemy4 = new Enemy(-110, 58, 'images/enemy-bug.png');
 
 // Place all enemy objects in an array called allEnemies
 var allEnemies = [];
