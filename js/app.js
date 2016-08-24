@@ -1,6 +1,3 @@
-//TODO: Take out unnecessary comments
-//TODO: add any necessary comments
-
 // Enemies our player must avoid
 var Enemy = function(x, y, sprite) {
 
@@ -12,10 +9,6 @@ var Enemy = function(x, y, sprite) {
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
-
-
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -34,9 +27,11 @@ Enemy.prototype.update = function(dt) {
     }
 
     checkCollisions();
-
 };
 
+// Runs in the Enemy.update() method. Restarts the game if the player
+// collides with any enemy. 2D collision detection provided by
+// Mozilla Develloper Network.
 var checkCollisions = function() {
 
         for (i = 0; i < allEnemies.length; i++) {
@@ -70,19 +65,21 @@ var Player = function() {
 };
 
 Player.prototype.update = function(dt) {
-    //TODO: add something here?
 
-      if (this.y < 60) {
-            this.x = 202;
-            this.y = 403;
-            console.log("You win!")
+    if (this.y < 60) {
+        this.x = 202;
+        this.y = 403;
+        console.log("You win!");
     }
 };
 
+// Draw the player on the screen
 Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
+// Make the player move with arrow keys, also set boundaries so
+// player can't fall off the screen
 Player.prototype.handleInput = function(direction) {
     if (direction == 'left' && this.x > 50) {
         this.x -= 100
