@@ -25,4 +25,4 @@ My undying gratitude to [Udacity](Udacity.com) for providing...well pretty much 
 
 ## License
 
-The contents of this repository are covered under the [MIT License](frontend-nanodegree-arcade-game/License.txt)
+The contents of this repository are covered under the [MIT License](License.txt)
