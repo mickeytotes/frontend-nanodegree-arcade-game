@@ -33,17 +33,27 @@ Enemy.prototype.update = function(dt) {
         this.x = -100;
     }
 
-    //function checkCollisions() {
-        //var rect1 = {x: this.x, y: this.y, width: 100, height: 50}
-       // var rect2 = {x: player.x, y: player.y, width: 50, height: 100}
-
-        //if (rect1.x < rect2.x + rect2.width &&
-        //rect1.x + rect1.width > rect2.x &&
-        //rect1.y < rect2.y + rect2.height &&
-        //rect1.height + rect1.y > rect2.y) {
-    //}
+    checkCollisions();
 
 };
+
+var checkCollisions = function() {
+
+        for (i = 0; i < allEnemies.length; i++) {
+
+        var rect1 = {x: allEnemies[i].x, y: allEnemies[i].y, width: 80, height: 50}
+        var rect2 = {x: player.x, y: player.y, width: 50, height: 80}
+
+        if (rect1.x < rect2.x + rect2.width &&
+        rect1.x + rect1.width > rect2.x &&
+        rect1.y < rect2.y + rect2.height &&
+        rect1.height + rect1.y > rect2.y) {
+            player.x = 202;
+            player.y = 403;
+            console.log("A bug squashed you! Try again.");
+        }
+    }
+    };
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -65,6 +75,7 @@ Player.prototype.update = function(dt) {
       if (this.y < 60) {
             this.x = 202;
             this.y = 403;
+            console.log("You win!")
     }
 };
 
@@ -118,3 +129,12 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+// Unncecessary function to log the x location of each enemy for
+// every game tic
+//var enemyLoc = function() {
+  //  for (i = 0; i < allEnemies.length; i++) {
+    //    console.log(allEnemies[i].x);
+    //}
+//};
