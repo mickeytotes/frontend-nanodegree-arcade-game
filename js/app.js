@@ -1,17 +1,19 @@
 // Enemies our player must avoid
 var Enemy = function(x, y, sprite) {
+// Set the image for the enemy
+    this.sprite = 'images/enemy-bug.png';
 
     this.x = x;
     this.y = y;
 
+    // make enemy speeds random
     this.speed = getRandomInt(80, 200);
 
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    // Set the image for the enemy
-    this.sprite = 'images/enemy-bug.png';
+
 };
 
 // Update the enemy's position
