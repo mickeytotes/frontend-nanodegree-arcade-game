@@ -10,15 +10,14 @@ var Enemy = function(x, y, sprite) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+    // Set the image for the enemy
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
+// Update the enemy's position
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
+    // multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.speed * dt;
@@ -34,36 +33,36 @@ Enemy.prototype.update = function(dt) {
 // Mozilla Develloper Network.
 var checkCollisions = function() {
 
-        for (i = 0; i < allEnemies.length; i++) {
+    for (i = 0; i < allEnemies.length; i++) {
 
-        var rect1 = {x: allEnemies[i].x, y: allEnemies[i].y, width: 80, height: 50}
-        var rect2 = {x: player.x, y: player.y, width: 50, height: 80}
+    var rect1 = {x: allEnemies[i].x, y: allEnemies[i].y, width: 80, height: 50}
+    var rect2 = {x: player.x, y: player.y, width: 50, height: 80}
 
-        if (rect1.x < rect2.x + rect2.width &&
-        rect1.x + rect1.width > rect2.x &&
-        rect1.y < rect2.y + rect2.height &&
-        rect1.height + rect1.y > rect2.y) {
-            player.x = 202;
-            player.y = 403;
-            console.log("A bug squashed you! Try again.");
+    if (rect1.x < rect2.x + rect2.width &&
+    rect1.x + rect1.width > rect2.x &&
+    rect1.y < rect2.y + rect2.height &&
+    rect1.height + rect1.y > rect2.y) {
+        player.x = 202;
+        player.y = 403;
+        console.log("A bug squashed you! Try again.");
         }
     }
-    };
+};
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+
+// Create player class
 var Player = function() {
     this.x = 202;
     this.y = 403;
     this.sprite = 'images/char-boy.png';
 };
 
+// Restart game if player reaches the water
 Player.prototype.update = function(dt) {
 
     if (this.y < 60) {
@@ -93,9 +92,9 @@ Player.prototype.handleInput = function(direction) {
     if (direction == 'down' && this.y < 403) {
         this.y += 85
     }
-    };
+};
 
-// Now instantiate your objects.
+// instantiate enemy objects.
 var enemy1 = new Enemy(-150, 234, 'images/enemy-bug.png');
 var enemy2 = new Enemy(-100, 234, 'images/enemy-bug.png');
 var enemy3 = new Enemy(-180, 150, 'images/enemy-bug.png');
@@ -115,7 +114,7 @@ var allPlayers = [];
 allPlayers.push(player);
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -126,12 +125,3 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
-
-
-// Unncecessary function to log the x location of each enemy for
-// every game tic
-//var enemyLoc = function() {
-  //  for (i = 0; i < allEnemies.length; i++) {
-    //    console.log(allEnemies[i].x);
-    //}
-//};
