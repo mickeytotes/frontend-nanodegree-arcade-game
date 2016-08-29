@@ -1,6 +1,7 @@
 // Enemies our player must avoid
 var Enemy = function(x, y, sprite) {
 // Set the image for the enemy
+    "use strict";
     this.sprite = 'images/enemy-bug.png';
 
     this.x = x;
@@ -10,6 +11,7 @@ var Enemy = function(x, y, sprite) {
     this.speed = getRandomInt(80, 200);
 
     function getRandomInt(min, max) {
+        "use strict";
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
@@ -19,6 +21,7 @@ var Enemy = function(x, y, sprite) {
 // Update the enemy's position
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
+    "use strict";
     // multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -34,6 +37,7 @@ Enemy.prototype.update = function(dt) {
 // collides with any enemy. 2D collision detection provided by
 // Mozilla Develloper Network.
 var checkCollisions = function() {
+    "use strict";
 
     for (i = 0; i < allEnemies.length; i++) {
 
@@ -53,12 +57,14 @@ var checkCollisions = function() {
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
+    "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 
 // Create player class
 var Player = function() {
+    "use strict";
     this.x = 202;
     this.y = 403;
     this.sprite = 'images/char-boy.png';
@@ -66,6 +72,7 @@ var Player = function() {
 
 // Restart game if player reaches the water
 Player.prototype.update = function(dt) {
+    "use strict";
 
     if (this.y < 60) {
         this.x = 202;
@@ -76,12 +83,14 @@ Player.prototype.update = function(dt) {
 
 // Draw the player on the screen
 Player.prototype.render = function() {
+    "use strict";
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Make the player move with arrow keys, also set boundaries so
 // player can't fall off the screen
 Player.prototype.handleInput = function(direction) {
+    "use strict";
     if (direction == 'left' && this.x > 50) {
         this.x -= 100
     }
@@ -118,6 +127,7 @@ allPlayers.push(player);
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
+    "use strict";
     var allowedKeys = {
         37: 'left',
         38: 'up',
