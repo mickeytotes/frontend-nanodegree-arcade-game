@@ -30,18 +30,15 @@ Enemy.prototype.update = function(dt) {
         this.x = -100;
     }
 
-    checkCollisions();
+    this.checkCollisions();
 };
 
 // Runs in the Enemy.update() method. Restarts the game if the player
 // collides with any enemy. 2D collision detection provided by
 // Mozilla Develloper Network.
-var checkCollisions = function() {
+Enemy.prototype.checkCollisions = function() {
     "use strict";
-
-    for (i = 0; i < allEnemies.length; i++) {
-
-    var rect1 = {x: allEnemies[i].x, y: allEnemies[i].y, width: 80, height: 50}
+    var rect1 = {x: this.x, y: this.y, width: 80, height: 50}
     var rect2 = {x: player.x, y: player.y, width: 50, height: 80}
 
     if (rect1.x < rect2.x + rect2.width &&
@@ -52,7 +49,7 @@ var checkCollisions = function() {
         player.y = 403;
         console.log("A bug squashed you! Try again.");
         }
-    }
+
 };
 
 // Draw the enemy on the screen, required method for game
