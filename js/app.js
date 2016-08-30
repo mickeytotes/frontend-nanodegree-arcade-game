@@ -102,17 +102,18 @@ Player.prototype.handleInput = function(direction) {
 };
 
 // instantiate enemy objects.
-var enemy1 = new Enemy(-150, 234, 'images/enemy-bug.png');
-var enemy2 = new Enemy(-100, 234, 'images/enemy-bug.png');
-var enemy3 = new Enemy(-180, 150, 'images/enemy-bug.png');
-var enemy4 = new Enemy(-110, 58, 'images/enemy-bug.png');
+enemyData = [
+{x: -150, y: 234},
+{x: -100, y: 234},
+{x: -180, y: 150},
+{x: -110, y: 58}
+]
 
-// Place all enemy objects in an array called allEnemies
 var allEnemies = [];
-    allEnemies.push(enemy1);
-    allEnemies.push(enemy2);
-    allEnemies.push(enemy3);
-    allEnemies.push(enemy4);
+
+enemyData.forEach(function(enemy) {
+    allEnemies.push(new Enemy(enemy.x, enemy.y, 'images/enemy-bug.png'));
+})
 
 // Place the player object in a variable called player
 var player = new Player(202, 403);
