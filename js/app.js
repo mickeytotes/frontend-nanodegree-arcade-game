@@ -11,7 +11,6 @@ var Enemy = function(x, y, sprite) {
     this.speed = getRandomInt(80, 200);
 
     function getRandomInt(min, max) {
-        "use strict";
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
@@ -38,8 +37,8 @@ Enemy.prototype.update = function(dt) {
 // Mozilla Develloper Network.
 Enemy.prototype.checkCollisions = function() {
     "use strict";
-    var rect1 = {x: this.x, y: this.y, width: 80, height: 50}
-    var rect2 = {x: player.x, y: player.y, width: 50, height: 80}
+    var rect1 = {x: this.x, y: this.y, width: 80, height: 50};
+    var rect2 = {x: player.x, y: player.y, width: 50, height: 80};
 
     if (rect1.x < rect2.x + rect2.width &&
     rect1.x + rect1.width > rect2.x &&
@@ -89,16 +88,16 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(direction) {
     "use strict";
     if (direction == 'left' && this.x > 50) {
-        this.x -= 100
+        this.x -= 100;
     }
     if (direction == 'right' && this.x < 400) {
-        this.x += 100
+        this.x += 100;
     }
     if (direction == 'up' && this.y > 29) {
-        this.y -= 85
+        this.y -= 85;
     }
     if (direction == 'down' && this.y < 403) {
-        this.y += 85
+        this.y += 85;
     }
 };
 
